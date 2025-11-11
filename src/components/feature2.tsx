@@ -38,7 +38,7 @@ const Feature2 = ({
             alt={imageAlt}
             className="max-h-128 w-full rounded-md object-cover"
           />
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="flex flex-col items-start text-left lg:items-start lg:text-left">
             <h2 className="text-pretty mb-6 max-w-4xl text-3xl font-bold tracking-tight lg:text-5xl">
               {title}
             </h2>

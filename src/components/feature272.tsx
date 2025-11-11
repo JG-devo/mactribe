@@ -6,12 +6,12 @@ import { BackgroundBeams } from '@/components/aceternity/background-beams';
 const Feature272 = () => {
   return (
     <section className="relative bg-background text-foreground dark h-full w-screen overflow-hidden py-32">
-      <div className="container relative z-20 flex h-full flex-col items-center justify-center">
-        <h2 className="text-center mb-6 text-pretty text-3xl font-bold tracking-tight max-w-3xl lg:text-5xl">
+      <div className="container relative z-20 flex h-full flex-col items-start justify-center text-left lg:items-center lg:text-center">
+        <h2 className="mb-6 text-pretty text-3xl font-bold tracking-tight max-w-3xl lg:text-5xl lg:text-center">
           Looking for IT Support That Just Works{' '}
           <span className="italic">Without</span> The Drama?
         </h2>
-        <p className="text-muted-foreground mb-16 max-w-3xl text-center lg:text-xl">
+        <p className="text-muted-foreground mb-16 max-w-3xl lg:text-xl lg:text-center">
           We’ll help you manage your business tech and IT systems with less
           stress, more clarity, and the kind of support that feels like it’s
           part of your business. Interested in learning more about how we work?

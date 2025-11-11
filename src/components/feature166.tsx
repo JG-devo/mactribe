@@ -46,7 +46,7 @@ const Feature166 = ({
   },
 }: Feature166Props) => {
   return (
-    <section className="py-32">
+    <section className="dark bg-background text-foreground py-32">
       <div className="container">
         <div className="flex flex-col items-start text-left lg:items-center lg:text-center">
           <h2 className="text-pretty mb-6 max-w-4xl text-3xl font-bold tracking-tight lg:text-5xl">

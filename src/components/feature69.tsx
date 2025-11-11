@@ -88,11 +88,10 @@ const Feature69 = () => {
               We Provide Fully Managed IT Services
             </h2>
             <p className="text-muted-foreground mb-16 lg:text-xl">
-              We work with companies of all sizes from fast-growing startups to
-              well-established firms helping them manage devices, users, and
-              systems across Apple and Windows platforms. Your team gets a
-              friendly helpdesk, expert engineers, layered cyber security, and
-              ongoing guidance. Think of us like your in-house IT team.
+              We'll help you to manage your devices, users, and systems across
+              Apple and Windows platforms. Your team gets a friendly helpdesk,
+              expert engineers, layered cyber security, and ongoing guidance.
+              Think of us like your in-house IT team.
             </p>
             <ul className="space-y-2">
               {features.map((feature, i) => (
@@ -103,15 +102,15 @@ const Feature69 = () => {
                   onClick={() => setSelection(i)}
                 >
                   <div className="flex items-center justify-between gap-x-2">
-                    <div className="text-accent-foreground text-m font-semibold">
+                    <h3 className="text-accent-foreground text-xl font-semibold tracking-tighter">
                       {feature.title}
-                    </div>
+                    </h3>
                     <div className="bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground group-data-open:bg-primary group-data-open:text-primary-foreground flex size-8 items-center justify-center rounded-full">
                       <ChevronDown className="group-data-open:rotate-180 size-4 shrink-0 transition-transform duration-200" />
                     </div>
                   </div>
-                  <div className="group-data-open:block hidden text-sm font-medium">
-                    <p className="text-muted-foreground my-4 lg:my-6">
+                  <div className="group-data-open:block hidden">
+                    <p className="text-muted-foreground my-4 text-base lg:my-6">
                       {feature.description}
                     </p>
                     <a

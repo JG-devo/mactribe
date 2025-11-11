@@ -2,6 +2,9 @@
 import MainLayout from '../layouts/main.astro';
 import { Hero13 } from '@/components/hero13';
 import { Feature69 } from '@/components/feature69';
+import { Logos10 } from '@/components/logos10';
+import { Feature272 } from '@/components/feature272';
+import { Feature2 } from '@/components/feature2';
 
 const seo = {
 	title: 'MacTribe | Mac Support London',
@@ -15,4 +18,8 @@ const seo = {
 <MainLayout seo={seo}>
 	<Hero13 />
 	<Feature69 client:load />
+	<Feature272 client:load/>
+	<Logos10 client:load/>
+	<Feature2 />
+
 </MainLayout>

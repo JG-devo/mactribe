@@ -7,21 +7,20 @@ const Feature120 = () => {
     <section className="py-32">
       <div className="container">
         <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-2">
-          <div className="flex flex-col gap-2.5 py-8">
-            <h1 className="text-4xl font-bold lg:text-5xl">
+          <div className="flex flex-col py-8">
+            <h2 className="mb-6 text-pretty text-3xl font-bold tracking-tight lg:text-5xl">
               Why work with us?
-            </h1>
-            <p className="text-muted-foreground">
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-3xl lg:text-xl">
               We’ve been in this industry for over 15 years, so we know what
               works, and what doesn’t. We’re not a faceless enterprise. You’ll
               get to know our management team personally, because we stay
               involved and hands-on.
             </p>
-            <p className="text-muted-foreground">
-              We take our work seriously, and we care about how people are
-              treated. If you’re feeling overwhelmed by all the tech decisions
-              on your plate, we’re here to take that weight off so you can focus
-              on what you do best.
+            <p className="text-muted-foreground mb-8 max-w-3xl lg:text-xl">
+              If you’re feeling overwhelmed by all the tech decisions on your
+              plate, we’re here to take that weight off so you can focus on what
+              you do best.
             </p>
             <div className="flex flex-col gap-6 py-10 sm:flex-row sm:gap-16">
               <div className="flex gap-4 leading-5">
@@ -31,9 +30,11 @@ const Feature120 = () => {
                     alt="avatar"
                   />
                 </Avatar>
-                <div className="text-sm">
-                  <p className="font-medium">Robert McManus</p>
-                  <p className="text-muted-foreground italic">
+                <div className="space-y-1">
+                  <h3 className="text-xl font-medium font-normal tracking-tighter">
+                    Robert McManus
+                  </h3>
+                  <p className="text-base text-muted-foreground italic">
                     "I have worked with MacTribe for over a decade. They have
                     infinite patience with my less techno savvy moments (which
                     are many). They have successfully resolved seemingly

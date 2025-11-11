@@ -1,6 +1,40 @@
 ---
 import '../styles/global.css';
-const { content } = Astro.props;
+import { Navbar2 } from '@/components/navbar2';
+
+type SeoProps = {
+	title?: string;
+	description?: string;
+	image?: string;
+	url?: string;
+	siteName?: string;
+	type?: string;
+};
+
+// Base values so every page has crawlable metadata even without overrides
+const defaultSeo: Required<Omit<SeoProps, 'url'>> & { url: string } = {
+	title: 'MacTribe',
+	description:
+		'We provide Mac Support and fully managed IT services for London businesses',
+	// 1200x630 works best for OG/Twitter cards to avoid cropping
+	image: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+	siteName: 'MacTribe',
+	type: 'website',
+	url: ''
+};
+
+const seoInput = (Astro.props.seo ?? {}) as SeoProps;
+// Merge page-level data with defaults, preferring passed-in values
+const meta = {
+	...defaultSeo,
+	...seoInput,
+	title: seoInput.title ?? Astro.props.title ?? defaultSeo.title,
+	description: seoInput.description ?? defaultSeo.description,
+	image: seoInput.image ?? defaultSeo.image,
+	siteName: seoInput.siteName ?? defaultSeo.siteName,
+	type: seoInput.type ?? defaultSeo.type,
+	url: seoInput.url ?? Astro.url?.href ?? defaultSeo.url
+};
 ---
 
 <html lang="en">
@@ -8,9 +42,25 @@ const { content } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
+		<!-- Core SEO meta tags -->
+		<title>{meta.title}</title>
+		<meta name="description" content={meta.description} />
+		<link rel="canonical" href={meta.url || undefined} />
+		<!-- Open Graph for link unfurls -->
+		<meta property="og:title" content={meta.title} />
+		<meta property="og:description" content={meta.description} />
+		<meta property="og:type" content={meta.type} />
+		{meta.url && <meta property="og:url" content={meta.url} />}
+		<meta property="og:image" content={meta.image} />
+		<meta property="og:site_name" content={meta.siteName} />
+		<!-- Twitter Card values mirror OG for consistency -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={meta.title} />
+		<meta name="twitter:description" content={meta.description} />
+		<meta name="twitter:image" content={meta.image} />
 	</head>
 	<body>
+		<Navbar2 client:load />
 		<slot />
 	</body>
 </html>

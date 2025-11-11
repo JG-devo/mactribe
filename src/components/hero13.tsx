@@ -1,4 +1,4 @@
-import { Bell, CircleChevronRight } from 'lucide-react';
+import { PartyPopper, CircleChevronRight } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -12,11 +12,10 @@ const Hero13 = () => {
           className="mb-4 max-w-full text-sm font-normal lg:mb-10 lg:py-2 lg:pl-2 lg:pr-5"
         >
           <span className="bg-accent mr-2 flex size-8 shrink-0 items-center justify-center rounded-full">
-            <Bell className="size-4" />
+            <PartyPopper className="size-4" />
           </span>
           <p className="truncate whitespace-nowrap">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-            eaque distinctio iusto voluptas voluptatum sed!
+            Get in touch with us to book in a FREE assessment!
           </p>
         </Badge>
         <h1 className="mb-6 text-4xl font-bold leading-none tracking-tighter md:text-[7vw] lg:text-8xl">

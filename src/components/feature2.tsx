@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 interface Feature2Props {
   title: string;
@@ -16,17 +16,17 @@ interface Feature2Props {
 }
 
 const Feature2 = ({
-  title = "Blocks built with Shadcn & Tailwind",
-  description = "Hundreds of finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
-  imageSrc = "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
-  imageAlt = "placeholder hero",
+  title = 'Blocks built with Shadcn & Tailwind',
+  description = 'Hundreds of finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.',
+  imageSrc = 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+  imageAlt = 'placeholder hero',
   buttonPrimary = {
-    text: "Get Started",
-    href: "https://shadcnblocks.com",
+    text: 'Get Started',
+    href: 'https://shadcnblocks.com',
   },
   buttonSecondary = {
-    text: "Learn More",
-    href: "https://shadcnblocks.com",
+    text: 'Learn More',
+    href: 'https://shadcnblocks.com',
   },
 }: Feature2Props) => {
   return (
@@ -36,14 +36,14 @@ const Feature2 = ({
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="max-h-96 w-full rounded-md object-cover"
+            className="max-h-128 w-full rounded-md object-cover"
           />
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <h2 className="my-6 mt-0 text-balance text-4xl font-semibold lg:text-5xl">
+            <h2 className="text-pretty mb-6 max-w-4xl text-3xl font-bold tracking-tight lg:text-5xl">
               {title}
             </h2>
             {description && (
-              <p className="text-muted-foreground mb-8 max-w-xl lg:text-lg">
+              <p className="text-muted-foreground mb-16 max-w-3xl lg:text-xl">
                 {description}
               </p>
             )}

@@ -63,9 +63,7 @@ const Feature166 = ({
                 <h3 className="text-xl font-medium font-semibold tracking-tighter">
                   {feature1.title}
                 </h3>
-                <p className="text-muted-foreground">
-                  {feature1.description}
-                </p>
+                <p className="text-muted-foreground">{feature1.description}</p>
                 <img
                   src={feature1.image}
                   alt={feature1.title}
@@ -76,9 +74,7 @@ const Feature166 = ({
                 <h3 className="text-xl font-medium font-semibold tracking-tighter">
                   {feature2.title}
                 </h3>
-                <p className="text-muted-foreground">
-                  {feature2.description}
-                </p>
+                <p className="text-muted-foreground">{feature2.description}</p>
                 <img
                   src={feature2.image}
                   alt={feature2.title}
@@ -91,9 +87,7 @@ const Feature166 = ({
                 <h3 className="text-xl font-medium font-semibold tracking-tighter">
                   {feature3.title}
                 </h3>
-                <p className="text-muted-foreground">
-                  {feature3.description}
-                </p>
+                <p className="text-muted-foreground">{feature3.description}</p>
                 <img
                   src={feature3.image}
                   alt={feature3.title}
@@ -104,9 +98,7 @@ const Feature166 = ({
                 <h3 className="text-xl font-medium font-semibold tracking-tighter">
                   {feature4.title}
                 </h3>
-                <p className="text-muted-foreground">
-                  {feature4.description}
-                </p>
+                <p className="text-muted-foreground">{feature4.description}</p>
                 <img
                   src={feature4.image}
                   alt={feature4.title}

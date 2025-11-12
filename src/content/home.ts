@@ -6,6 +6,8 @@ import home5 from '@/images/home-5.jpeg';
 import home6 from '@/images/home-6.jpeg';
 import home7 from '@/images/home-7.jpeg';
 import home8 from '@/images/home-8.jpeg';
+import home9 from '@/images/home-9.jpeg';
+import testimonialPerson1 from '@/images/testimonial-person1.png';
 
 import type { ImageSource } from '@/lib/resolve-images';
 
@@ -54,6 +56,28 @@ export const feature2Content = {
   buttonSecondary: { text: 'Contact us', href: '#' },
 };
 
+export const feature120Content = {
+  title: 'Why work with us?',
+  intro:
+    'We’ve been in this industry for over 15 years, so we know what works, and what doesn’t. We’re not a faceless enterprise. You’ll get to know our management team personally, because we stay involved and hands-on.',
+  body: 'If you’re feeling overwhelmed by all the tech decisions on your plate, we’re here to take that weight off so you can focus on what you do best.',
+  ctaLabel: 'Book in your FREE IT assessment',
+  avatar: {
+    image: { type: 'local', src: testimonialPerson1 } satisfies ImageSource,
+    alt: 'avatar',
+    name: 'Robert McManus',
+    quote:
+      '"I have worked with MacTribe for over a decade. They have infinite patience with my less techno savvy moments (which are many). They have successfully resolved seemingly impossible challenges quickly, efficiently and at rates which are exceedingly reasonable. Jean has assembled an amazing team who I cannot recommend highly enough."',
+  },
+  stats: [
+    { value: '15+', label: 'Years of delivering excellence' },
+    { value: '98%', label: 'IT problems solved in quick remote sessions' },
+    { value: '25', label: 'Prestigious awards for innovation' },
+    { value: '>30k', label: 'Thriving businesses using our platform' },
+  ],
+  image: { type: 'local', src: home5 } satisfies ImageSource,
+};
+
 export const feature166Content = {
   title: 'The Perks of Working With Us',
   description:
@@ -80,6 +104,6 @@ export const feature166Content = {
     title: 'Everything Under One Roof',
     description:
       'Ensuring fast loading times and smooth performance through optimized code and assets.',
-    image: { type: 'local', src: home5 } satisfies ImageSource,
+    image: { type: 'local', src: home9 } satisfies ImageSource,
   },
 };

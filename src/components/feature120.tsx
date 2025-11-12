@@ -1,84 +1,131 @@
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import type { ResolvedImage } from '@/lib/resolve-images';
 
-const Feature120 = () => {
+type Feature120Image = ResolvedImage | string | undefined;
+
+interface Feature120Props {
+  title: string;
+  intro: string;
+  body: string;
+  ctaLabel: string;
+  avatar: {
+    image?: Feature120Image;
+    alt: string;
+    quote: string;
+    name: string;
+  };
+  stats: Array<{ label: string; value: string }>;
+  heroImage?: Feature120Image;
+}
+
+const renderImage = (
+  image: Feature120Image,
+  alt: string,
+  className: string
+) => {
+  if (!image || typeof image === 'string') {
+    return (
+      <img
+        src={
+          image ??
+          'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg'
+        }
+        alt={alt}
+        className={className}
+        loading="lazy"
+        decoding="async"
+      />
+    );
+  }
+
+  if (image.kind === 'optimized') {
+    return (
+      <img
+        src={image.image.src}
+        srcSet={image.image.srcSet}
+        sizes={image.image.sizes}
+        width={image.image.width}
+        height={image.image.height}
+        loading={image.image.loading ?? 'lazy'}
+        decoding={image.image.decoding ?? 'async'}
+        alt={alt}
+        className={className}
+      />
+    );
+  }
+
+  return (
+    <img
+      src={image.src}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+};
+
+const Feature120 = ({
+  title,
+  intro,
+  body,
+  ctaLabel,
+  avatar,
+  stats,
+  heroImage,
+}: Feature120Props) => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="grid items-center gap-10 md:gap-20 lg:grid-cols-2">
           <div className="flex flex-col py-8">
             <h2 className="mb-6 text-pretty text-3xl font-bold tracking-tight lg:text-5xl">
-              Why work with us?
+              {title}
             </h2>
             <p className="text-muted-foreground mb-6 max-w-3xl lg:text-xl">
-              We’ve been in this industry for over 15 years, so we know what
-              works, and what doesn’t. We’re not a faceless enterprise. You’ll
-              get to know our management team personally, because we stay
-              involved and hands-on.
+              {intro}
             </p>
             <p className="text-muted-foreground mb-8 max-w-3xl lg:text-xl">
-              If you’re feeling overwhelmed by all the tech decisions on your
-              plate, we’re here to take that weight off so you can focus on what
-              you do best.
+              {body}
             </p>
             <div className="flex flex-col gap-6 py-10 sm:flex-row sm:gap-16">
               <div className="flex gap-4 leading-5">
-                <Avatar className="ring-input size-9 rounded-xs ring-1">
-                  <AvatarImage
-                    src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp"
-                    alt="avatar"
-                  />
-                </Avatar>
+                <div className="ring-input h-fit overflow-hidden rounded-full ring-1">
+                  {renderImage(
+                    avatar.image,
+                    avatar.alt,
+                    'w-64 rounded-full object-cover'
+                  )}
+                </div>
                 <div className="space-y-1">
                   <h3 className="text-xl font-medium font-normal tracking-tighter">
-                    Robert McManus
+                    {avatar.name}
                   </h3>
                   <p className="text-base text-muted-foreground italic">
-                    "I have worked with MacTribe for over a decade. They have
-                    infinite patience with my less techno savvy moments (which
-                    are many). They have successfully resolved seemingly
-                    impossible challenges quickly, efficiently and at rates
-                    which are exceedingly reasonable. Jean has assembled an
-                    amazing team who I cannot recommend highly enough."
+                    {avatar.quote}
                   </p>
                 </div>
               </div>
             </div>
-            <Button className="w-fit">Book in your FREE IT assessment</Button>
+            <Button className="w-fit">{ctaLabel}</Button>
           </div>
-          <img
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-            alt="placeholder"
-            className="h-full max-h-[800px] w-full rounded-xs object-cover"
-          />
+          {renderImage(
+            heroImage,
+            title,
+            'h-full max-h-[800px] w-full rounded-xs object-cover'
+          )}
         </div>
         <Separator className="my-12" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <h2 className="mb-2 text-4xl font-semibold md:text-6xl">15+</h2>
-            <p className="text-muted-foreground">
-              Years of delivering excellence
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-2 text-4xl font-semibold md:text-6xl">98%</h2>
-            <p className="text-muted-foreground">
-              IT problems solved in quick remote sessions
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-2 text-4xl font-semibold md:text-6xl">25</h2>
-            <p className="text-muted-foreground">
-              Prestigious awards for innovation
-            </p>
-          </div>
-          <div>
-            <h2 className="mb-2 text-4xl font-semibold md:text-6xl">&gt;30k</h2>
-            <p className="text-muted-foreground">
-              Thriving businesses using our platform
-            </p>
-          </div>
+          {stats.map(stat => (
+            <div key={stat.label}>
+              <h2 className="mb-2 text-4xl font-semibold md:text-6xl">
+                {stat.value}
+              </h2>
+              <p className="text-muted-foreground">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

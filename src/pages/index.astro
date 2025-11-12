@@ -9,7 +9,12 @@ import { Feature120 } from '@/components/feature120';
 import { Feature166 } from '@/components/feature166';
 import { Faq9 } from '@/components/faq9';
 
-import { feature69Content, feature2Content, feature166Content } from '@/content/home';
+import {
+  feature69Content,
+  feature2Content,
+  feature120Content,
+  feature166Content
+} from '@/content/home';
 import { resolveImage, resolveImages } from '@/lib/resolve-images';
 
 const resolvedFeature69Images = await resolveImages(feature69Content.map(feature => feature.image));
@@ -19,6 +24,15 @@ const feature69Images = feature69Content.map((feature, index) => ({
 }));
 
 const feature2Image = await resolveImage(feature2Content.image);
+
+const {
+  image: feature120HeroSource,
+  avatar: feature120AvatarSource,
+  ...feature120Base
+} = feature120Content;
+
+const feature120HeroImage = await resolveImage(feature120HeroSource);
+const feature120AvatarImage = await resolveImage(feature120AvatarSource.image);
 const feature166Images = await resolveImages([
   feature166Content.feature1.image,
   feature166Content.feature2.image,
@@ -32,6 +46,12 @@ const feature166Props = {
   feature2: { ...feature166Content.feature2, image: feature166Images[1] },
   feature3: { ...feature166Content.feature3, image: feature166Images[2] },
   feature4: { ...feature166Content.feature4, image: feature166Images[3] }
+};
+
+const feature120Props = {
+  ...feature120Base,
+  heroImage: feature120HeroImage,
+  avatar: { ...feature120AvatarSource, image: feature120AvatarImage }
 };
 
 const seo = {
@@ -58,7 +78,7 @@ const seo = {
 		imageSrc={feature2Image}
 	/>
 	<Feature166 {...feature166Props} />
-	<Feature120 />
+	<Feature120 {...feature120Props} />
 	<Faq9 client:load />
 
 </MainLayout>

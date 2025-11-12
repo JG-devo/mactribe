@@ -9,12 +9,12 @@ import { Feature120 } from '@/components/feature120';
 import { Feature166 } from '@/components/feature166';
 import { Faq9 } from '@/components/faq9';
 
-import itSupport from '@/images/it-support.jpeg';
-import itConsultancy from '@/images/it-consultancy.jpeg';
-import itSolutions from '@/images/it-solutions.jpeg';
-import featureTwo from '@/images/home-4.jpeg';
+import home1 from '@/images/home-1.jpeg';
+import home2 from '@/images/home-2.jpeg';
+import home3 from '@/images/home-3.jpeg';
+import home4 from '@/images/home-4.jpeg';
 
-import { resolveImages, type ImageSource } from '@/lib/resolve-images';
+import { resolveImage, resolveImages, type ImageSource } from '@/lib/resolve-images';
 
 // Each feature entry only describes content + where its image lives.
 const featureSources: Array<{
@@ -30,7 +30,7 @@ const featureSources: Array<{
     description:
       'Whether you operate a purely Apple-based business or use a mix of technologies including Microsoft, we’ll help you get the best from all your platforms.',
     href: '#',
-    image: { type: 'local', src: itSupport }
+    image: { type: 'local', src: home1 }
   },
   {
     id: 'feature-2',
@@ -40,7 +40,7 @@ const featureSources: Array<{
     href: '#',
     image: {
       type: 'local',
-      src: itConsultancy
+      src: home2
     }
   },
   {
@@ -51,13 +51,18 @@ const featureSources: Array<{
     href: '#',
     image: {
       type: 'local',
-      src: itSolutions
+      src: home3
     }
   }
 ];
 
 // Turn the plain data above into ready-to-render payloads (optimized where possible).
-const feature69Images = await resolveImages(featureSources);
+const resolvedFeature69Images = await resolveImages(featureSources.map(feature => feature.image));
+const feature69Images = featureSources.map((feature, index) => ({
+  ...feature,
+  image: resolvedFeature69Images[index]
+}));
+const feature2Image = await resolveImage({ type: 'local', src: home4 });
 
 const seo = {
 	title: 'MacTribe | Mac Support London',
@@ -80,7 +85,7 @@ const seo = {
 		buttonPrimary={{ text: 'Call us', href: 'tel:+15551234567' }}
 		buttonSecondary={{ text: 'Contact us', href: '#' }}
 		imageAlt='A group of people working in an office'
-		imageSrc={featureTwo}
+		imageSrc={feature2Image}
 	/>
 	<Feature166 />
 	<Feature120 />

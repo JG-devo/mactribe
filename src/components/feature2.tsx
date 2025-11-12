@@ -1,9 +1,12 @@
 import { Button } from '@/components/ui/button';
+import type { ResolvedImage } from '@/lib/resolve-images';
+
+type FeatureImage = string | ResolvedImage;
 
 interface Feature2Props {
   title: string;
   description?: string;
-  imageSrc: string;
+  imageSrc?: FeatureImage;
   imageAlt: string;
   buttonPrimary: {
     text: string;
@@ -15,10 +18,48 @@ interface Feature2Props {
   };
 }
 
+const renderImage = (image: FeatureImage | undefined, alt: string) => {
+  if (!image || typeof image === 'string') {
+    return (
+      <img
+        src={image ?? 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg'}
+        alt={alt}
+        className="max-h-128 w-full rounded-xs object-cover"
+      />
+    );
+  }
+
+  if (image.kind === 'optimized') {
+    return (
+      <img
+        src={image.image.src}
+        srcSet={image.image.srcSet}
+        sizes={image.image.sizes}
+        width={image.image.width}
+        height={image.image.height}
+        loading={image.image.loading ?? 'lazy'}
+        decoding={image.image.decoding ?? 'async'}
+        alt={alt}
+        className="max-h-128 w-full rounded-xs object-cover"
+      />
+    );
+  }
+
+  return (
+    <img
+      src={image.src}
+      alt={alt}
+      className="max-h-128 w-full rounded-xs object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  );
+};
+
 const Feature2 = ({
   title = 'Blocks built with Shadcn & Tailwind',
   description = 'Hundreds of finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.',
-  imageSrc = 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+  imageSrc,
   imageAlt = 'placeholder hero',
   buttonPrimary = {
     text: 'Get Started',
@@ -33,11 +74,7 @@ const Feature2 = ({
     <section className="py-32">
       <div className="container">
         <div className="grid items-center gap-8 md:gap-16 lg:grid-cols-2">
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            className="max-h-128 w-full rounded-xs object-cover"
-          />
+          {renderImage(imageSrc, imageAlt)}
           <div className="flex flex-col items-start text-left lg:items-start lg:text-left">
             <h2 className="text-pretty mb-6 max-w-4xl text-3xl font-bold tracking-tight lg:text-5xl">
               {title}

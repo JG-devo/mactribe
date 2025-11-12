@@ -42,7 +42,7 @@ const defaultOptions: Required<Omit<ResolveImagesOptions, 'sizes'>> = {
 	quality: 80
 };
 
-async function resolveImage(source: ImageSource, options?: ResolveImagesOptions): Promise<ResolvedImage> {
+export async function resolveImage(source: ImageSource, options?: ResolveImagesOptions): Promise<ResolvedImage> {
 	if (source.type === 'remote') {
 		// Remote assets cannot be processed by Astro, so just echo their URL back.
 		return {
@@ -80,15 +80,9 @@ async function resolveImage(source: ImageSource, options?: ResolveImagesOptions)
 	};
 }
 
-export async function resolveImages<T extends { image: ImageSource }>(
-	items: T[],
+export async function resolveImages(
+	sources: ImageSource[],
 	options?: ResolveImagesOptions
-): Promise<Array<Omit<T, 'image'> & { image: ResolvedImage }>> {
-	return Promise.all(
-		// Preserve the rest of each record while swapping in the normalized image payload.
-		items.map(async item => ({
-			...item,
-			image: await resolveImage(item.image, options)
-		}))
-	);
+): Promise<ResolvedImage[]> {
+	return Promise.all(sources.map(source => resolveImage(source, options)));
 }

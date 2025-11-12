@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { Navbar2 } from '@/components/navbar2';
+import { Footer2 } from '@/components/footer2';
 
 type SeoProps = {
 	title?: string;
@@ -62,5 +63,6 @@ const meta = {
 	<body>
 		<Navbar2 client:load />
 		<slot />
+		<Footer2 />
 	</body>
 </html>

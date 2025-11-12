@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { Navbar2 } from '@/components/navbar2';
 import { Footer2 } from '@/components/footer2';
+import ThemeScript from '@/components/theme-script.astro';
 
 type SeoProps = {
 	title?: string;
@@ -43,6 +44,7 @@ const meta = {
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<ThemeScript />
 		<!-- Core SEO meta tags -->
 		<title>{meta.title}</title>
 		<meta name="description" content={meta.description} />

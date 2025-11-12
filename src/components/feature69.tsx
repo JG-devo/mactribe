@@ -9,16 +9,33 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+import type { ResolvedImage } from '@/lib/resolve-images';
+// ResolvedImage lets this React island stay agnostic about how Astro prepared each asset.
 
-const features = [
+type FeatureItem = {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  image: ResolvedImage;
+};
+
+type Feature69Props = {
+  // When no data is passed from Astro we fall back to placeholder slides.
+  features?: FeatureItem[];
+};
+
+const fallbackFeatures: FeatureItem[] = [
   {
     id: 'feature-1',
     title: 'IT Support',
     description:
       'Whether you operate a purely Apple-based business or use a mix of technologies including Microsoft, we’ll help you get the best from all your platforms.',
     href: '#',
-    image:
-      'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+    image: {
+      kind: 'external',
+      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+    },
   },
   {
     id: 'feature-2',
@@ -26,8 +43,10 @@ const features = [
     description:
       'If you have a goal in mind or need help bringing your IT environment to life, we’ll work with you to shape your setup to match your objectives.',
     href: '#',
-    image:
-      'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg',
+    image: {
+      kind: 'external',
+      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg',
+    },
   },
   {
     id: 'feature-3',
@@ -35,20 +54,24 @@ const features = [
     description:
       'We provide Mac IT solutions covering networking, internet, VoIP, advanced cyber security, cloud services, and everything else you need to run your business efficiently.',
     href: '#',
-    image:
-      'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg',
+    image: {
+      kind: 'external',
+      src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg',
+    },
   },
 ];
 
-const Feature69 = () => {
+const Feature69 = ({ features = fallbackFeatures }: Feature69Props) => {
   const [selection, setSelection] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  // Keep the carousel in sync with the selected list item.
   useEffect(() => {
     if (!carouselApi) {
       return;
     }
     carouselApi.scrollTo(selection);
   }, [carouselApi, selection]);
+  // Listen for drag/keyboard changes emitted by Embla.
   useEffect(() => {
     if (!carouselApi) {
       return;
@@ -73,11 +96,29 @@ const Feature69 = () => {
               <CarouselContent className="mx-0 h-full w-full">
                 {features.map(feature => (
                   <CarouselItem key={feature.id} className="px-0">
-                    <img
-                      src={feature.image}
-                      alt={feature.title}
-                      className="h-full w-full object-cover object-center"
-                    />
+                    {feature.image.kind === 'optimized' ? (
+                      // Astro pre-processed image: use generated src/srcSet/sizes for best performance.
+                      <img
+                        src={feature.image.image.src}
+                        srcSet={feature.image.image.srcSet}
+                        sizes={feature.image.image.sizes}
+                        width={feature.image.image.width}
+                        height={feature.image.image.height}
+                        loading={feature.image.image.loading ?? 'lazy'}
+                        decoding={feature.image.image.decoding ?? 'async'}
+                        alt={feature.title}
+                        className="h-full w-full object-cover object-center"
+                      />
+                    ) : (
+                      // Remote URL fallback where Astro couldn't transform the asset.
+                      <img
+                        src={feature.image.src}
+                        alt={feature.title}
+                        className="h-full w-full object-cover object-center"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
                   </CarouselItem>
                 ))}
               </CarouselContent>

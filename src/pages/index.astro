@@ -9,6 +9,55 @@ import { Feature120 } from '@/components/feature120';
 import { Feature166 } from '@/components/feature166';
 import { Faq9 } from '@/components/faq9';
 
+import itSupport from '@/images/it-support.jpeg';
+import itConsultancy from '@/images/it-consultancy.jpeg';
+import itSolutions from '@/images/it-solutions.jpeg';
+import featureTwo from '@/images/home-4.jpeg';
+
+import { resolveImages, type ImageSource } from '@/lib/resolve-images';
+
+// Each feature entry only describes content + where its image lives.
+const featureSources: Array<{
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  image: ImageSource;
+}> = [
+  {
+    id: 'feature-1',
+    title: 'IT Support',
+    description:
+      'Whether you operate a purely Apple-based business or use a mix of technologies including Microsoft, we’ll help you get the best from all your platforms.',
+    href: '#',
+    image: { type: 'local', src: itSupport }
+  },
+  {
+    id: 'feature-2',
+    title: 'IT Consultancy',
+    description:
+      'If you have a goal in mind or need help bringing your IT environment to life, we’ll work with you to shape your setup to match your objectives.',
+    href: '#',
+    image: {
+      type: 'local',
+      src: itConsultancy
+    }
+  },
+  {
+    id: 'feature-3',
+    title: 'IT Solutions',
+    description:
+      'We provide Mac IT solutions covering networking, internet, VoIP, advanced cyber security, cloud services, and everything else you need to run your business efficiently.',
+    href: '#',
+    image: {
+      type: 'local',
+      src: itSolutions
+    }
+  }
+];
+
+// Turn the plain data above into ready-to-render payloads (optimized where possible).
+const feature69Images = await resolveImages(featureSources);
 
 const seo = {
 	title: 'MacTribe | Mac Support London',
@@ -22,7 +71,7 @@ const seo = {
 
 <MainLayout seo={seo}>
 	<Hero13 />
-	<Feature69 client:load />
+	<Feature69 client:load features={feature69Images} />
 	<Feature272 client:load/>
 	<Logos10 client:load/>
 	<Feature2
@@ -30,6 +79,8 @@ const seo = {
 		description={`We offer support on a per-user pricing plan. Start with a base cost, then add features your business actually needs. No bundles packed with things you’ll never use. No upselling. No stress. Just the right tools for your setup, whether that’s a 5-person remote team or a company with 100+ staff across offices and continents. If you’d like a proper quote, just get in touch. We’ll ask a few questions and give you clear, straightforward pricing.`}
 		buttonPrimary={{ text: 'Call us', href: 'tel:+15551234567' }}
 		buttonSecondary={{ text: 'Contact us', href: '#' }}
+		imageAlt='A group of people working in an office'
+		imageSrc={featureTwo}
 	/>
 	<Feature166 />
 	<Feature120 />

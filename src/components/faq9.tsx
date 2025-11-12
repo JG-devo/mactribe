@@ -43,7 +43,7 @@ const Faq9 = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-muted mb-2 rounded-md border-b-0 px-5 py-2 md:mb-4"
+              className="bg-muted mb-2 rounded-xs border-b-0 px-5 py-2 md:mb-4"
             >
               <AccordionTrigger className="text-left">
                 {faq.question}

@@ -11,7 +11,7 @@ const Hero13 = () => {
           variant="outline"
           className="mb-4 max-w-full text-sm font-normal lg:mb-10 lg:py-2 lg:pl-2 lg:pr-5"
         >
-          <span className="bg-accent mr-2 flex size-8 shrink-0 items-center justify-center rounded-full">
+          <span className="bg-accent mr-2 flex size-8 shrink-0 items-center justify-center rounded-xs">
             <PartyPopper className="size-4" />
           </span>
           <p className="truncate whitespace-nowrap">

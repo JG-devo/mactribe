@@ -65,7 +65,7 @@ const Feature69 = () => {
     <section className="py-32">
       <div className="container">
         <div className="flex flex-col gap-8 md:flex-row-reverse">
-          <div className="aspect-5/6 bg-accent overflow-clip rounded-3xl">
+          <div className="aspect-5/6 bg-accent overflow-clip rounded-xs">
             <Carousel
               setApi={setCarouselApi}
               className="h-full w-full [&>div]:h-full"
@@ -105,7 +105,7 @@ const Feature69 = () => {
                     <h3 className="text-accent-foreground text-xl font-semibold tracking-tighter">
                       {feature.title}
                     </h3>
-                    <div className="bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground group-data-open:bg-primary group-data-open:text-primary-foreground flex size-8 items-center justify-center rounded-full">
+                    <div className="bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground group-data-open:bg-primary group-data-open:text-primary-foreground flex size-8 items-center justify-center rounded-xs">
                       <ChevronDown className="group-data-open:rotate-180 size-4 shrink-0 transition-transform duration-200" />
                     </div>
                   </div>

@@ -27,7 +27,7 @@ const Feature272 = () => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim
             </p>
-            <div className="bg-background absolute -bottom-5 right-1/2 z-10 flex size-10 translate-x-1/2 rotate-90 items-center justify-center gap-2 rounded-full border md:-right-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:rotate-0">
+            <div className="bg-background absolute -bottom-5 right-1/2 z-10 flex size-10 translate-x-1/2 rotate-90 items-center justify-center gap-2 rounded-xs border md:-right-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:rotate-0">
               <ArrowRight className="size-6" />
             </div>
           </div>
@@ -40,7 +40,7 @@ const Feature272 = () => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim
             </p>
-            <div className="bg-background absolute -bottom-5 right-1/2 z-10 flex size-10 translate-x-1/2 rotate-90 items-center justify-center gap-2 rounded-full border md:-right-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:rotate-0">
+            <div className="bg-background absolute -bottom-5 right-1/2 z-10 flex size-10 translate-x-1/2 rotate-90 items-center justify-center gap-2 rounded-xs border md:-right-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0 md:rotate-0">
               <ArrowRight className="size-6" />
             </div>
           </div>

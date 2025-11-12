@@ -36,7 +36,7 @@ const Feature2 = ({
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="max-h-128 w-full rounded-md object-cover"
+            className="max-h-128 w-full rounded-xs object-cover"
           />
           <div className="flex flex-col items-start text-left lg:items-start lg:text-left">
             <h2 className="text-pretty mb-6 max-w-4xl text-3xl font-bold tracking-tight lg:text-5xl">

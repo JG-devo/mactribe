@@ -1,4 +1,4 @@
-import { Logo, LogoImage, LogoText } from "@/components/shadcnblocks/logo";
+import { Logo, LogoImage, LogoText } from '@/components/shadcnblocks/logo';
 
 interface MenuItem {
   title: string;
@@ -26,60 +26,60 @@ interface Footer2Props {
 
 const Footer2 = ({
   logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "Shadcnblocks.com",
-    url: "https://www.shadcnblocks.com",
+    src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg',
+    alt: 'blocks for shadcn/ui',
+    title: 'Shadcnblocks.com',
+    url: 'https://www.shadcnblocks.com',
   },
-  tagline = "Components made easy.",
+  tagline = 'Components made easy.',
   menuItems = [
     {
-      title: "Product",
+      title: 'Product',
       links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-        { text: "Pricing", url: "#" },
+        { text: 'Overview', url: '#' },
+        { text: 'Pricing', url: '#' },
+        { text: 'Marketplace', url: '#' },
+        { text: 'Features', url: '#' },
+        { text: 'Integrations', url: '#' },
+        { text: 'Pricing', url: '#' },
       ],
     },
     {
-      title: "Company",
+      title: 'Company',
       links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-        { text: "Privacy", url: "#" },
+        { text: 'About', url: '#' },
+        { text: 'Team', url: '#' },
+        { text: 'Blog', url: '#' },
+        { text: 'Careers', url: '#' },
+        { text: 'Contact', url: '#' },
+        { text: 'Privacy', url: '#' },
       ],
     },
     {
-      title: "Resources",
+      title: 'Resources',
       links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
+        { text: 'Help', url: '#' },
+        { text: 'Sales', url: '#' },
+        { text: 'Advertise', url: '#' },
       ],
     },
     {
-      title: "Social",
+      title: 'Social',
       links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
+        { text: 'Twitter', url: '#' },
+        { text: 'Instagram', url: '#' },
+        { text: 'LinkedIn', url: '#' },
       ],
     },
   ],
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
+  copyright = '© 2024 Shadcnblocks.com. All rights reserved.',
   bottomLinks = [
-    { text: "Terms and Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
+    { text: 'Terms and Conditions', url: '#' },
+    { text: 'Privacy Policy', url: '#' },
   ],
 }: Footer2Props) => {
   return (
-    <section className="py-32">
+    <section className="dark bg-background text-foreground py-32">
       <div className="container">
         <footer>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">

@@ -201,7 +201,7 @@ const Navbar2 = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
+                    <Button asChild variant="outline" size="sm">
                       <a href={phoneHref}>{cta.phone.label}</a>
                     </Button>
                     <Button asChild>
